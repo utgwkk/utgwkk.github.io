@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>yuma <-> 日本円換算器</title>
+<script>
+var YUMA = 330000;
+document.addEventListener('DOMContentLoaded', function(){
+  document.getElementById('yuma_to_jpy').addEventListener('click', function(){
+    document.getElementById('in_jpy').setAttribute('value', document.getElementById('in_yuma').value*YUMA);
+  });
+  document.getElementById('jpy_to_yuma').addEventListener('click', function(){
+    document.getElementById('in_yuma').setAttribute('value', document.getElementById('in_jpy').value/YUMA);
+  });
+});
+</script>
+</head>
+<body>
+<h1>yuma <-> 日本円換算機</h1>
+yuma を日本円に、日本円を yuma に換算します。<br>
+1yuma = 330k = \330,000
+<p>
+yuma:<input type="number" id="in_yuma" size="10"><button id="yuma_to_jpy">yuma→日本円</button><br>
+日本円:<input type="number" id="in_jpy" size="10"><button id="jpy_to_yuma">日本円→yuma</button><br>
+</p>
+<hr>
+<a href="../">Home</a>
+</body>
+</html>

@@ -1,0 +1,31 @@
+body {
+  font-family: 'Ubuntu', sans-serif;
+}
+
+h1 {
+  text-align: center;
+  font-size: 400%;
+  font-weight: normal;
+}
+
+#icon {
+  margin: 0 auto;
+  margin-bottom: 2em;
+  width: 500px;
+  height: 500px;
+  border-radius: 250px;
+  background: url(https://utgw.net/img/koishi7.png) no-repeat;
+  background-size: contain;
+}
+
+#contacts {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.contact img {
+  width: 120px;
+  height: 120px;
+}

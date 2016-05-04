@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>口分田・租税・庸税計算機</title>
+<script type="text/javascript">
+function hoge()
+{
+  var st, jt, cn, rf, nm, nf, cho, tan, bu, soku, wa, bcp, jo, shaku;
+  const sozei = 720;
+  st = Number(document.f.st.value);
+  jt = Number(document.f.jt.value);
+  cn = Number(document.f.cn.value);
+  rf = Number(document.f.rf.value);
+  nm = Number(document.f.nm.value);
+  nf = Number(document.f.nf.value);
+  cho = tan = bu = soku = wa = jo = shaku = 0;
+  // 口分田・租税・庸税面積
+  bu = Math.floor((st + jt + cn) * sozei + rf * sozei * 2.0 / 3.0 + nm * sozei / 3.0 + nf * sozei * 2.0 / 9.0);
+  bcp = bu;
+  tan = Math.floor(bu / 360.0);
+  bu %= 360;
+  cho = Math.floor(tan / 10.0);
+  tan %= 10;
+  // 租税
+  wa = 22 * Math.floor(bcp / 360.0);
+  soku = Math.floor(wa / 10.0);
+  wa %= 10;
+  // 庸税
+  shaku = Math.floor((st + jt / 2.0) * 26);
+  jo = Math.floor(shaku / 10.0);
+  shaku %= 10;
+  document.f.bu.value = bu;
+  document.f.tan.value = tan;
+  document.f.cho.value = cho;
+  document.f.wa.value = wa;
+  document.f.soku.value = soku;
+  document.f.jo.value = jo;
+  document.f.shaku.value = shaku;
+}
+</script>
+</head>
+<body>
+<h1>口分田・租税・庸税計算機</h1>
+<form name="f" action="#">
+<table>
+  <tr>
+    <td>正丁</td><td><input type="number" name="st" value="0">人</td>
+    <td>次丁</td><td><input type="number" name="jt" value="0">人</td>
+    <td>中男(ないし6歳以上20歳未満男子)</td><td><input type="number" name="cn" value="0">人</td>
+  </tr>
+  <tr><td>6歳以上の女子</td><td><input type="number" name="rf" value="0">人</td></tr>
+  <tr><td>　　〃　　　奴</td><td><input type="number" name="nm" value="0">人</td></tr>
+  <tr><td>　　〃　　　婢</td><td><input type="number" name="nf" value="0">人</td></tr>
+</table>
+<input type="button" value="計算" onclick="hoge()">
+<br>
+<table>
+  <tr><td>口分田面積</td><td><input type="text" name="cho">町<input type="text" name="tan">段<input type="text" name="bu">歩</td></tr>
+  <tr><td>租税</td><td><input type="text" name="soku">束<input type="text" name="wa">把</td></tr>
+  <tr><td>庸税</td><td><input type="text" name="jo">丈<input type="text" name="shaku">尺</td></tr>
+</table>
+</form>
+<hr>
+<a href="https://twitter.com/_utgw">連絡先(Twitter)</a>
+</body>
+</html>

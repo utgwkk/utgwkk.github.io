@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>マイナンバーは正しいですか？ - Is Your Number Valid?</title>
+    <script type="text/javascript">
+      function outputMessage(valid){
+        var result = document.getElementById('result');
+        if(valid)
+          result.textContent = "あなたのマイナンバーは正しいです！";
+        else
+          result.textContent = "あなたのマイナンバーは不正です……";
+      }
+      
+      function checkNumber(numberStr){
+        if(numberStr.length != 12)
+          return false;
+        var checkDigit = Number(numberStr.substr(11));
+        var calculateResult = 11;
+        var sum = 0;
+        for(var n=1;n<12;n++){
+          var i = 11 - n;
+          var digit = Number(numberStr.substr(i,1));
+          console.log(digit);
+          var Q = ((1 <= n) && (n <= 6)) ? n + 1 : n - 5;
+          sum += (digit * Q);
+        }
+        sum %= 11;
+        calculateResult -= sum;
+        if(calculateResult >= 10) calculateResult = 0;
+        console.log(calculateResult);
+        console.log(checkDigit);
+        return checkDigit == calculateResult;
+      }
+      
+      window.addEventListener('load', function(e){
+        var checkButton = document.getElementById('check_button');
+        checkButton.addEventListener('click', function(event){
+          var yourNumber = document.getElementById('your_number');
+          var inputNum = yourNumber.value;
+          var checkResult = checkNumber(inputNum);
+          outputMessage(checkResult);
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <h1>Is Your Number Valid?</h1>
+    <form>
+      <input type="text" id="your_number">
+      <button type="button" id="check_button">確認</button>
+    </form>
+    <hr>
+    <div id="result">
+      ここに結果が表示されます
+    </div>
+  </body>
+</html>

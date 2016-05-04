@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>タイマー</title>
+<style type="text/css">
+.btn
+{
+  padding: 0.5em;
+  font-size: 125%;
+}
+
+.box
+{
+  padding: 0.2em;
+  font-size: 120%;
+}
+</style>
+<script type="text/javascript"><!-- 
+var status = 0;
+var sec;
+var cd;
+
+function cntdown()
+{
+  var f = document.forms["hoge"];
+  sec--;
+  if (sec < 0)
+  {
+    clearInterval(cd);
+    window.alert("そこまで！");
+    f["btn"].value = "開始";
+    f["min"].disabled = f["sec"].disabled = false;
+    f["rst"].disabled = true;
+    f["ti"].value = "";
+    status = 0;
+    return;
+  }
+  if (sec % 10 == 0) f["ti"].value = rest(sec);
+}
+
+function timer() // ボタンを押したときの処理
+{
+  var f = document.forms["hoge"];
+  //switch (status)
+  switch (String(status))
+  {
+    case "0": // 始まっていない
+      if ((f["min"].value == 0) && (f["sec"].value == 0))
+      {
+        window.alert("時間を入力してください");
+        return;
+      }
+      status = 1;
+      f["btn"].value = "一時停止";
+      f["min"].disabled = f["sec"].disabled = true;
+      f["rst"].disabled = false;
+      sec = (Number(f["min"].value) * 60 + Number(f["sec"].value))*10;
+      f["ti"].value = rest(sec);
+      cd = start_cd();
+      break;
+    case "1": // 始まっている
+      status = 2;
+      f["btn"].value = "再開";
+      clearInterval(cd);
+      break;
+    case "2": // 一時停止している
+      status = 1;
+      f["btn"].value = "一時停止";
+      cd = start_cd();
+      break;
+  }
+}
+
+function rest(i)
+{
+  i /= 10;
+  str = "残り "+Math.floor(i/60)+"分"+i%60+"秒";
+  return(str);
+}
+
+function start_cd()
+{
+  return setInterval(cntdown, 100);
+}
+
+function clr()
+{
+  var f = document.forms["hoge"];
+  f["rst"].disabled = true;
+  f["min"].disabled = f.sec.disabled = false;
+  f["btn"].value = "開始";
+  f["ti"].value = "";
+  clearInterval(cd);
+  status = 0;
+}
+
+// -->
+</script>
+</head>
+<body>
+<h1>タイマー</h1>
+<form name="hoge">
+<input type="number" name="min" value="0" size="2" min="0" class="box">分
+<input type="number" name="sec" value="0" size="2" min="0" max="59" class="box">秒
+<input type="button" name="btn" value="開始" onclick="timer()" class="btn">
+<input type="button" name="rst" value="リセット" onclick="clr()" class="btn" disabled>
+<p><input type="text" name="ti" value="" size="20" style="font-size: 200%;"></p>
+</form>
+</body>
+</html>

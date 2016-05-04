@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>base64するやつ</title>
+    <script src="../js/base64.js" charset="utf-8"></script>
+    <script type="text/javascript">
+      window.addEventListener('load', function(){
+        var normalTextarea = document.getElementById('normal');
+        var base64Textarea = document.getElementById('base64');
+        normalTextarea.addEventListener('input', function(e){
+          base64Textarea.value = Unibabel.utf8ToBase64(normalTextarea.value);
+        });
+        base64Textarea.addEventListener('input', function(e){
+          var result;
+          try{
+            result = Unibabel.base64ToUtf8(base64Textarea.value);
+          }catch(e){
+            result = "Invalid.";
+          }finally{
+            normalTextarea.value = result;
+          }
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <h1>base64するやつ</h1>
+    <form>
+      <div>
+        <h2>ふつうの文字列</h2>
+        <textarea id="normal" rows="12" cols="50">文字列とbase64エンコード文字列を相互変換することができます。
+どちらかのテキストボックスに文字列を入力するだけで自動的に変換されます。
+ただし、下のテキストボックスにbase64として不適切な文字列を入力すると、 Invalid. と出力されます。</textarea>
+      </div>
+      <div>
+        <h2>base64されてる文字列</h2>
+        <textarea id="base64" rows="12" cols="50">5paH5a2X5YiX44GoYmFzZTY044Ko44Oz44Kz44O844OJ5paH5a2X5YiX44KS55u45LqS5aSJ5o+b44GZ44KL44GT44Go44GM44Gn44GN44G+44GZ44CCCuOBqeOBoeOCieOBi+OBruODhuOCreOCueODiOODnOODg+OCr+OCueOBq+aWh+Wtl+WIl+OCkuWFpeWKm+OBmeOCi+OBoOOBkeOBp+iHquWLleeahOOBq+WkieaPm+OBleOCjOOBvuOBmeOAggrjgZ/jgaDjgZfjgIHkuIvjga7jg4bjgq3jgrnjg4jjg5zjg4Pjgq/jgrnjgatiYXNlNjTjgajjgZfjgabkuI3pganliIfjgarmloflrZfliJfjgpLlhaXlipvjgZnjgovjgajjgIEgSW52YWxpZC4g44Go5Ye65Yqb44GV44KM44G+44GZ44CC</textarea>
+      </div>
+    </form>
+    <hr>
+  </body>
+</html>

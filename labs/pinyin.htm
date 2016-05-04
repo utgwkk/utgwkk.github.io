@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="text/javascript">
+      var cnv = {
+        a1: 'ā',
+        a2: 'á',
+        a3: 'ă',
+        a4: 'à',
+        e1: 'ē',
+        e2: 'é',
+        e3: 'ĕ',
+        e4: 'è',
+        i1: 'ī',
+        i2: 'í',
+        i3: 'ĭ',
+        i4: 'ì',
+        o1: 'ō',
+        o2: 'ó',
+        o3: 'ŏ',
+        o4: 'ò',
+        u1: 'ū',
+        u2: 'ú',
+        u3: 'ŭ',
+        u4: 'ù',
+        ü1: 'ǖ',
+        ü2: 'ǘ',
+        ü3: 'ǚ',
+        ü4: 'ǜ',
+      }
+      function doit(){
+        var intxt = document.hoge.intxt.value;
+        var result = document.getElementById("result");
+        result.innerHTML = "";
+        var s = intxt.split(" ");
+        for(var i=0;i<s.length;i++){
+          var vowel,tone;
+          var text = s[i];
+          tone = text.substring(text.length-1,text.length);
+          if(text.match(/[A-Za-z][1-4]/)){
+            text = text.substring(0,text.length-1);
+            if(text.match(/a/)) vowel = "a";
+            else if(text.match(/o/)) vowel = "o";
+            else if(text.match(/e/)) vowel = "e";
+            else if(text.match(/i?u/)) vowel = "u";
+            else if(text.match(/u?i/)) vowel = "i";
+            else vowel = "ü";
+            result.innerHTML += text.replace(vowel,cnv[vowel+tone])+" ";
+          }else{
+            result.innerHTML += text+" ";
+          }
+        }
+        result.innerHTML = result.innerHTML.substring(0,result.innerHTML.length-1);
+      }
+    </script>
+    <title>ピンインにするやつ</title>
+  </head>
+  <body>
+    <h1>ピンインにするやつ</h1>
+    <ul>
+      <li>Ri4 ben3→Rì bĕn みたいに変換してくれるよ</li>
+      <li>音節ごとにスペースで区切ってね</li>
+    </ul>
+    <form name="hoge">
+      <input type="text" name="intxt" size="100"><br>
+      <input type="button" value="pinyin!" onClick="doit();">
+    </form>
+    <p id="result">ここに結果が表示されるよ</p>
+    <hr>
+    <a href="https://twitter.com/utgwkk">つくったひと(@utgwkk)</a>
+  </body>
+</html>

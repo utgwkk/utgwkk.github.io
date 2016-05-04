@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type="text/css">
+      @media screen and (max-width: 480px) {
+        h1 {font-size: 120%;}
+      }
+    </style>
+    <title>パスワードつくるやつ</title>
+    <script type="text/javascript">
+      function generate(){
+        var length = Number(document.main.len.value);
+        var num = Number(document.main.num.value);
+        var charlist = document.main.charlist.value;
+        var sizeofcharlist = charlist.length;
+        document.main.result.value = "";
+
+        for(var i=0;i<num;i++){
+          for(var j=0;j<length;j++){
+            var rndint = Math.random() * sizeofcharlist;
+            document.main.result.value += charlist.slice(rndint, rndint+1);
+          }
+          document.main.result.value += "\n";
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <h1>パスワードつくるやつ</h1>
+    <form name="main">
+      <table>
+        <tr>
+          <td>
+            使用する文字列
+          </td>
+          <td>
+            <input type="text" name="charlist" value="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!#$%()=~-^+*;:[]{}@/?">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            パスワードの長さ
+          </td>
+          <td>
+            <input type="number" name="len" value="10" size="5" max="1000" min="1">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            生成する個数
+          </td>
+          <td>
+            <input type="number" name="num" value="5" size="5" max="1000" min="1">
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <input type="button" value="生成" onclick="generate();">
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <textarea name="result" rows="8" cols="40"></textarea>
+          </td>
+        </tr>
+      </table>
+    </form>
+  </body>
+</html>
