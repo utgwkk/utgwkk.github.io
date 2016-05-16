@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>random shindanmaker.com</title>
+    <script type="text/javascript">
+      window.addEventListener('DOMContentLoaded', function () {
+        window.setInterval(function () {
+          var baseURL = "https://shindanmaker.com/";
+          var form = document.getElementById('form');
+          form.setAttribute('action', baseURL + Math.floor(Math.random() * 50000));
+        }, 1000);
+      });
+    </script>
+    <style media="screen">
+      body {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>ランダム診断メーカー</h1>
+    <p>
+      ランダムに診断をすることができます<br>
+      注)ときどき削除(または非公開に)された診断をしてしまうことがあります 
+    </p>
+    <form action="" method="post" id="form" enctype="multipart/form-data">
+      <input type="text" name="u" maxlength="255">
+      <input type="submit" value="診断する">
+    </form>
+    <p>
+      made by <a href="https://twitter.com/utgwkk">@utgwkk</a>
+    </p>
+  </body>
+</html>
