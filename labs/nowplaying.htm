@@ -11,6 +11,14 @@ document.addEventListener('DOMContentLoaded', () => {
     data: {
       title: "",
       artist: ""
+    },
+    computed: {
+      nowPlaying() {
+        if (this.title !== "" && this.artist !== "")
+          return `${this.title} by ${this.artist}`
+        else
+          return "No music..."
+      }
     }
   });
 
@@ -31,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
 <body>
 <h1>#nowplaying</h1>
 <div id="main">
-  {{ title }} by {{ artist }}
+  {{ nowPlaying }}
 </div>
 </body>
 </html>
