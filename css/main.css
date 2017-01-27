@@ -10,6 +10,14 @@ h1 {
   font-weight: normal;
 }
 
+a {
+  color: #0b0;
+}
+
+a:hover {
+  color: #050;
+}
+
 #icon {
   margin: 0 auto;
   margin-bottom: 2em;
@@ -32,6 +40,21 @@ h1 {
 .contact img {
   width: 120px;
   height: 120px;
+}
+
+#aboutme {
+  width: 80%;
+  background-color: #fefefe;
+  border: 3px solid #090;
+  border-radius: 10px;
+  margin: 0 auto;
+  margin-top: 3em;
+  padding: 1em;
+}
+
+#aboutme hr {
+  border-color: #090;
+  margin: 20px auto;
 }
 
 @media screen and (max-width: 480px) {
