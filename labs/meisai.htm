@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="https://unpkg.com/vue"></script>
+    <title>明細から利用額計算するやつ</title>
+</head>
+<body>
+<h1>明細から利用額計算するやつ</h1>
+<p>C-a C-c C-v するだけで1回払いの支払い額が分かるすごいやつだよ</p>
+<h2>ライフカード</h2>
+<form id="vue">
+    <div><textarea cols="80" rows="20" v-model="inputValue"></textarea></div>
+    <div>1回払い \<input type="text" v-bind:value="calculateSum"></div>
+</form>
+<script type="text/javascript">
+const app = new Vue({
+    el: "#vue",
+    data: {
+        inputValue: ""
+    },
+    computed: {
+        calculateSum: function () {
+            return this.inputValue
+                       .split("\n")
+                       .filter(e => e.includes("1回払"))
+                       .map(e => parseInt(e.split("\t")[1].replace(/,/, ""), 10))
+                       .reduce((a, b) => a + b, 0)
+        }
+    }
+})
+</script>
+</body>
+</html>
