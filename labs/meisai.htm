@@ -8,8 +8,12 @@
 <body>
 <h1>明細から利用額計算するやつ</h1>
 <p>C-a C-c C-v するだけで1回払いの支払い額が分かるすごいやつだよ</p>
-<h2>ライフカード</h2>
 <form id="vue">
+    <div>
+        <select v-model="calculateMode">
+            <option v-for="card in availableCards" v-bind:value="card.value">{{card.text}}</option>
+        </select>
+    </div>
     <div><textarea cols="80" rows="20" v-model="inputValue"></textarea></div>
     <div>1回払い \<input type="text" v-bind:value="calculateSum"></div>
 </form>
@@ -17,15 +21,31 @@
 const app = new Vue({
     el: "#vue",
     data: {
-        inputValue: ""
+        inputValue: "",
+        calculateMode: "lifecard",
+        availableCards: [
+            {text: "ライフカード", value: "lifecard"},
+            {text: "イオンカード", value: "aeon"}
+        ],
+        calculateFunction: {
+            lifecard: function (input) {
+                return input.split("\n")
+                            .filter(e => e.includes("1回払"))
+                            .map(e => parseInt(e.split("\t")[1].replace(/,/, ""), 10))
+                            .reduce((a, b) => a + b, 0)
+            },
+            aeon: function (input) {
+                return input.split("\n")
+                            .map(e => e.trim())
+                            .filter(e => e.includes("１回"))
+                            .map(e => parseInt(e.split("\t")[4].replace(/,/, "").replace(/円/, ""), 10))
+                            .reduce((a, b) => a + b, 0)
+            }
+        }
     },
     computed: {
         calculateSum: function () {
-            return this.inputValue
-                       .split("\n")
-                       .filter(e => e.includes("1回払"))
-                       .map(e => parseInt(e.split("\t")[1].replace(/,/, ""), 10))
-                       .reduce((a, b) => a + b, 0)
+            return this.calculateFunction[this.calculateMode](this.inputValue)
         }
     }
 })
