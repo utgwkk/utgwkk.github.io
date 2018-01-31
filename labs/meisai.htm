@@ -25,7 +25,8 @@ const app = new Vue({
         calculateMode: "lifecard",
         availableCards: [
             {text: "ライフカード", value: "lifecard"},
-            {text: "イオンカード", value: "aeon"}
+            {text: "イオンカード", value: "aeon"},
+            {text: "ワイジェイカード", value: "yahoo"}
         ],
         calculateFunction: {
             lifecard: function (input) {
@@ -39,6 +40,13 @@ const app = new Vue({
                             .map(e => e.trim())
                             .filter(e => e.includes("１回"))
                             .map(e => parseInt(e.split("\t")[4].replace(/,/, "").replace(/円/, ""), 10))
+                            .reduce((a, b) => a + b, 0)
+            },
+            yahoo: function (input) {
+                return input.split("\n")
+                            .map(e => e.trim())
+                            .filter(e => e.includes("１回"))
+                            .map(e => parseInt(e.split("\t")[3].replace(/,/, "").replace(/円/, ""), 10))
                             .reduce((a, b) => a + b, 0)
             }
         }
