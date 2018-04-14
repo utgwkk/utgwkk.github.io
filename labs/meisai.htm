@@ -39,6 +39,7 @@ const app = new Vue({
                 return input.split("\n")
                             .map(e => e.trim())
                             .filter(e => e.includes("１回"))
+                            .filter(e => e.includes("リボ変更可能"))
                             .map(e => parseInt(e.split("\t")[4].replace(/,/, "").replace(/円/, ""), 10))
                             .reduce((a, b) => a + b, 0)
             },
