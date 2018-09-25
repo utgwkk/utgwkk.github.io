@@ -1,7 +1,7 @@
 body {
   font-family: 'Ubuntu', sans-serif;
-  background-color: #EAFFEA;
-  color: #090;
+  background-color: #ccc;
+  color: #333;
 }
 
 h1 {
@@ -11,11 +11,11 @@ h1 {
 }
 
 a {
-  color: #0b0;
+  color: #33f;
 }
 
 a:hover {
-  color: #050;
+  color: #00f;
 }
 
 #icon {
@@ -23,9 +23,9 @@ a:hover {
   margin-bottom: 2em;
   width: 500px;
   height: 500px;
-  border: solid #090 5px;
+  border: solid #333 5px;
   border-radius: 250px;
-  background: url(https://utgw.net/img/koishi7.png) no-repeat;
+  background: url(../img/nikutai.png) no-repeat;
   background-color: white;
   background-size: contain;
 }
@@ -45,7 +45,7 @@ a:hover {
 #aboutme {
   width: 80%;
   background-color: #fefefe;
-  border: 3px solid #090;
+  border: 3px solid #333;
   border-radius: 10px;
   margin: 0 auto;
   margin-top: 3em;
@@ -53,7 +53,7 @@ a:hover {
 }
 
 #aboutme hr {
-  border-color: #090;
+  border-color: #333;
   margin: 20px auto;
 }
 
