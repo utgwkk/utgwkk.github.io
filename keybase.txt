@@ -1,0 +1,68 @@
+==================================================================
+https://keybase.io/utgwkk
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://utgw.net
+  * I am utgwkk (https://keybase.io/utgwkk) on keybase.
+  * I have a public key with fingerprint 246F 563A 4426 4BC1 E635  80BD F1E6 21A1 51D6 1491
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0101b6ed4100103331cd7a9d1e7a2b3dde103d801239ac118dca393d83d1aff80aa10a",
+      "fingerprint": "246f563a44264bc1e63580bdf1e621a151d61491",
+      "host": "keybase.io",
+      "key_id": "f1e621a151d61491",
+      "kid": "0101b6ed4100103331cd7a9d1e7a2b3dde103d801239ac118dca393d83d1aff80aa10a",
+      "uid": "60a8bd973cc0c99b13cf3723fbdd2619",
+      "username": "utgwkk"
+    },
+    "service": {
+      "hostname": "utgw.net",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 1
+  },
+  "ctime": 1543169255,
+  "expire_in": 157680000,
+  "prev": "7be5db7b54b96b54f5eedeee89e2657a4866140cf2ed958a94a3e0a85e716e96",
+  "seqno": 11,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.0.80
+Comment: https://keybase.io/crypto
+
+yMIiAnicrVJdSFRBFF7NVtwQtsDsIQouZEWL3blzfyXLooQeKiojJGmbuTN3va3d
+u+296y/7kPmQUBRaQg9FhJBG2c9DhSbWEqQlSZBLVIqpFP1BIRVkWXOloIcem4eZ
+M9983zfnHM693Dm+QMbtmtomN+8El/HwbkvCt+fb5OsGDtukjitq4KJ09qBVhDpu
+OGoSrojjAQ+wTIkIeBZCCIFOFKQRQBUkYEgIZShReSBADekAqERHUGMIJAAZhsoj
+BHjEhTjDtCI0HoublstsBVE2JBkiURRkEeuAylBSeUwMFgkAAQkQGYgaYMJK2/EU
+LDmMHFpo2gxjl/Bsev/g/+e8E7N2Mo9UTDQF6jqvaxoGUDegIkADEyLIQPOIDo1b
+6ABl7IQbqYlGuWSIY1i1qVOvrV4df70XWtRlqljcdm3drmJopevGnCJP5dbFPFoN
+xeHfBmFsWoR1kCmqadwxbYsrAoypu6bnCCQRAlkTJCnE0dqYGadh02NIiqzybHn/
+0GpmqWAqEaxgScSazHZDopRQSlWNCrKkIFGVWR953RAo0SQVaSKClNUuUQXIVJM5
+r6SDls28AcsTRZinY0Ys5CbilEum7lRk+TICPv/cTG+0fIGc4J+BuzqV/dNJ9dY7
+faXN6lhbwL/304L3MyfOpaaT6v7htTkvDzc1TnRPhfoS08uDu1YOl5S0z7w9f3PZ
+M/dWf+XX7ai+PnV/Tf7E3eChV/MudF1blM7a19J7fYm46TJ8d2o0czJ9HQd/lN6+
+FOQ2txektcc144mzC/vWLX1wrGM6d3BNz8hY9Mvq1uLVJ783Pp9/unlfcXnTky07
+0fpHQ/2xHblt18pK8Ydkz4ptl0cjSysC2xaMl/vPKy0be7dcLcw7/llafn9w8arO
+128GzpRNZR/tymgb6N5wMDPWmS+kruzuGqpOlj/1b/jRcebFUHt85Eh6a3f64ky/
+v+JGQWuopLY19DG75EYb/gWxoUXJ
+=Nb4V
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/utgwkk
+
+==================================================================
