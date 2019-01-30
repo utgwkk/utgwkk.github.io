@@ -26,7 +26,7 @@ a:hover {
   border: solid #333 5px;
   border-radius: 250px;
   background: url(../img/nikutai.png) no-repeat;
-  background-color: white;
+  background-color: #fff;
   background-size: contain;
 }
 
@@ -88,8 +88,15 @@ a:hover {
   a {
     color: #ff3;
   }
+  body {
+    color: #fff;
+    background-color: #888;
+  }
   a:hover {
     color: #ff0;
+  }
+  #icon {
+    background-color: #090909;
   }
   #aboutme {
     background-color: #010101;
