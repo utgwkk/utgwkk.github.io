@@ -82,3 +82,19 @@ a:hover {
     height: 64px;
   }
 }
+
+/* dark theme */
+@media (prefers-color-scheme: dark) {
+  a {
+    color: #ff3;
+  }
+  a:hover {
+    color: #ff0;
+  }
+  #aboutme {
+    background-color: #010101;
+    color: #fff;
+    border: 3px solid #ccc;
+    border-radius: 10px;
+  }
+}
